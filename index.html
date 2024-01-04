@@ -25,12 +25,13 @@
 
     #yes-button,
     #no-button {
-      font-size: 20px; 
-      width: 100px; 
-      height: 40px; 
-      margin: 10px; 
+      font-size: 20px; /* Adjust the font size as needed */
+      width: 100px; /* Adjust the width as needed */
+      height: 40px; /* Adjust the height as needed */
+      margin: 10px; /* Adjust the margin as needed */
       cursor: pointer;
       background-color: pink;
+      transition: transform 0.3s ease-in-out; /* Smooth transition for desktop hover */
     }
 
     #no-button {
@@ -55,7 +56,7 @@
     <img src="pls.gif" alt="🥺🥺" style="width: 200px; height: auto;">
     <br>
     <button id="yes-button" onclick="showThanks()">Yes</button>
-    <button id="no-button" onmouseover="moveButton()">No</button>
+    <button id="no-button" onmouseover="moveButton()" ontouchstart="moveButton()">No</button>
   </div>
 
   <script>
