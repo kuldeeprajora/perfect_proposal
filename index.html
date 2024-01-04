@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect proposal</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: url('bg.jpg') center/cover no-repeat; 
+    }
+
+    #proposal-container {
+      height: auto;
+      width: auto;
+      text-align: center;
+      padding: 20px;
+      background-color: transparent; 
+      border-radius: 10px;
+    }
+
+    #yes-button,
+    #no-button {
+      font-size: 20px; /* Adjust the font size as needed */
+      width: 100px; /* Adjust the width as needed */
+      height: 40px; /* Adjust the height as needed */
+      margin: 10px; /* Adjust the margin as needed */
+      cursor: pointer;
+      background-color: pink;
+    }
+
+    #no-button {
+      position: absolute;
+      background-color: pink;
+    }
+
+    #proposal {
+      font-size: 30px;
+      color: pink;
+    }
+
+    #thankyou {
+      font-size: 30px;
+      color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div id="proposal-container">
+    <p id="proposal">Will you go for a date with me?</p>
+    <img src="pls.gif" alt="🥺🥺" style="width: 200px; height: auto;">
+    <br>
+    <button id="yes-button" onclick="showThanks()">Yes</button>
+    <button id="no-button" onmouseover="moveButton()">No</button>
+  </div>
+
+  <script>
+    var initialNoButtonX = 0;
+    var initialNoButtonY = 0;
+
+    function moveButton() {
+      var yesButton = document.getElementById('yes-button');
+      var button = document.getElementById('no-button');
+      if (initialNoButtonX === 0 && initialNoButtonY === 0) {
+        initialNoButtonX = yesButton.offsetLeft + yesButton.clientWidth + 10; 
+        initialNoButtonY = yesButton.offsetTop + (yesButton.clientHeight / 2);
+        button.style.left = initialNoButtonX + 'px';
+        button.style.top = initialNoButtonY + 'px';
+      } else {
+        var newX = Math.random() * (window.innerWidth - button.clientWidth);
+        var newY = Math.random() * (window.innerHeight - button.clientHeight);
+
+        button.style.left = newX + 'px';
+        button.style.top = newY + 'px';
+        initialNoButtonX = newX;
+        initialNoButtonY = newY;
+      }
+    }
+
+    function showThanks() {
+      var proposalContainer = document.getElementById('proposal-container');
+      proposalContainer.innerHTML = '<p id="thankyou">Awwww! Thank you! 😘😘</p>' + '<img src="ty.gif" alt="🥰">';
+    }
+  </script>
+</body>
+</html>
